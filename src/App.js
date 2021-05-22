@@ -24,7 +24,7 @@ particles: {
 	}
 }
 }
-console.log(process.env.REACT_APP_API_KEY)
+
 class App extends Component {
 	constructor(){
 		super();
@@ -39,13 +39,11 @@ class App extends Component {
 
 
 	calculateFaceLocation = (datas) => {
-		console.log(datas);
 		const datasArray = datas.outputs[0].data.regions;
 		const clarifaiFaces = datasArray.map(data => data.region_info.bounding_box);
 		const image = document.getElementById('inputimage');
 		const width = Number(image.width);
 		const height = Number (image.height);
-		console.log(clarifaiFaces, width, height);
 		return clarifaiFaces.map(clarifaiFace => 
 			{
 				return {		
@@ -58,7 +56,6 @@ class App extends Component {
 	}
 
 	displayFaceBox = (newBox) => {
-		console.log(newBox);
 		this.setState({ box : newBox});
 	}
 

@@ -5,7 +5,6 @@ const FaceRecognition = ({ imageUrl, box }) => {
   const faces = box.map((data, index) => {
   	return <div key={index}  className='bounding-box' style={{top: data.topRow, right: data.rightCol, bottom: data.bottomRow, left: data.leftCol}}></div>
   })
-  console.log(faces);
   return (
     <div className='center ma'>
       <div className='absolute mt2'>

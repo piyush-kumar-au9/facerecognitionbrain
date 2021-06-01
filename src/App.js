@@ -24,26 +24,26 @@ particles: {
 	}
 }
 }
-
+const initialState = {
+	input: ' ',
+	imageUrl: ' ',
+ 	box : [],
+	route: 'signin',
+	isSignedIn: false, 
+	user : 
+	{
+        id:' ',
+        name:'', 
+        email:'',
+        password:'',
+        entries:0,
+        joined: ''
+	}
+}
 class App extends Component {
 	constructor(){
 		super();
-		this.state = {
-			input: ' ',
-			imageUrl: ' ',
-		 	box : [],
-			route: 'signin',
-			isSignedIn: false, 
-			user : 
-			{
-	            id:' ',
-	            name:'', 
-	            email:'',
-	            password:'',
-	            entries:0,
-	            time: ''
-        	}
-		}
+		this.state = initialState;
 	}
 
 	loadUser = (data) => {
@@ -53,7 +53,7 @@ class App extends Component {
             email:data.email,
             password:data.password,
             entries:data.entries,
-            time: data.time } 
+            joined: data.joined } 
 		})
 	}
 	calculateFaceLocation = (datas) => {
@@ -106,7 +106,7 @@ class App extends Component {
 
 	onRouteChange = (route) => {
 	    if (route === 'signout') {
-	      this.setState({isSignedIn: false})
+	      this.setState(initialState)
 	    } else if (route === 'home') {
 	      this.setState({isSignedIn: true})
 	    }
@@ -115,8 +115,6 @@ class App extends Component {
 	}
 	render() {
 		const { imageUrl, box, route, isSignedIn, user }  =  this.state;
-
-		console.log(user);
 		return (
 		    <div className="App">
 			    <Particles className="particles"

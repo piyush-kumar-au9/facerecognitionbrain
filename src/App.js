@@ -11,7 +11,7 @@ import Particles from 'react-particles-js';
 import './App.css';
 
 const app = new Clarifai.App({
- apiKey: process.env.REACT_APP_API_KEY
+ apiKey: 'cf7c4544e5ed42c18c83173205445d70'
 });
 const particleOptions = {
 particles: {
